@@ -1,0 +1,1 @@
+# Repo para salvar comandos e infos úteis do Linux
