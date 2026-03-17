@@ -45,3 +45,49 @@ grep ^daemon /etc/passwd
 #infos usuario atual
 id 
 
+# --> criando e gerenciando usuarios
+
+sudo useradd testuser #cria com configs padrao de /etc/default/useradd e /etc/login.defs
+
+#opcoes comuns
+-m
+-d /caminho
+-s /caminho/para/shell
+-c "comentário"
+-g grupo
+-G grupo1,grupo2
+-e YYYY-MM-DD
+
+# adicionando senha
+sudo passwd testuser
+
+#verificar infos do usuario criado
+id testuser
+grep testuser /etc/passwd
+
+#modificando o shell padrao
+sudo usermod -s /bin/bash testuser
+
+#adcionando comentario
+sudo usermod -c "Usuário de Teste" testuser
+
+#mudando a home
+sudo usermod -d /home/newhome testuser
+
+#força expiraçao da senha
+sudo passwd -e testuser
+
+#bloqueia/desbloqueia usuario
+sudo passwd -l testuser
+sudo passwd -u testuser
+
+#remove
+sudo userdel testuser
+
+#remover com home
+sudo userdel -r testuser
+
+#alterar a propria senha
+passwd
+
+
